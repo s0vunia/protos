@@ -37,13 +37,11 @@ message LoginRequest {
 }
 
 message LoginResponse {
-  string token = 1; // Auth token of the logged in user.
 }
 
 message CreateExpressionRequest {
   string idempotency_key = 1;
   string expression = 2;
-  string token = 3;
 }
 message CreateExpressionResponse {
   string expression_id = 1;
@@ -51,7 +49,6 @@ message CreateExpressionResponse {
 
 message GetExpressionRequest {
   string expression_id = 1;
-  string token = 2;
 }
 message GetExpressionResponse {
   float result = 1;
@@ -62,7 +59,6 @@ message GetExpressionResponse {
 }
 
 message GetExpressionsRequest{
-  string token = 1;
 }
 
 message GetExpressionsResponse {
@@ -75,7 +71,6 @@ message GetAgentResponse {
 }
 
 message GetAgentsRequest {
-  string token = 1;
 }
 
 message GetAgentsResponse{
@@ -85,11 +80,9 @@ message GetAgentsResponse{
 message GetOperatorResponse{
   string id = 1;
   double heartbeat = 2;
-  string token = 3;
 }
 
 message GetOperatorsRequest {
-  string token = 1;
 }
 
 message GetOperatorsResponse{
