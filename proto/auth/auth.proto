@@ -40,7 +40,6 @@ message LoginResponse {
   string token = 1;
 }
 
-
 message CreateExpressionRequest {
   string idempotency_key = 1;
   string expression = 2;
