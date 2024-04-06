@@ -9,6 +9,18 @@ service Auth {
   // Login logs in a user and returns an auth token.
   rpc Login (LoginRequest) returns (LoginResponse);
 }
+service Orchestrator {
+  // Expression create expression
+  rpc CreateExpression(CreateExpressionRequest) returns (CreateExpressionResponse);
+  // Expressions return expression
+  rpc GetExpression(GetExpressionRequest) returns (GetExpressionResponse);
+  // Expressions return all expressions
+  rpc GetExpressions(GetExpressionsRequest) returns (GetExpressionsResponse);
+  // GetAgents return all agents
+  rpc GetAgents(GetAgentsRequest) returns (GetAgentsResponse);
+  // GetOperators return all operators
+  rpc GetOperators(GetOperatorsRequest) returns (GetOperatorsResponse);
+}
 message RegisterRequest {
   string login = 1; // Email of the user to register.
   string password = 2; // Password of the user to register.
@@ -26,4 +38,60 @@ message LoginRequest {
 
 message LoginResponse {
   string token = 1; // Auth token of the logged in user.
+}
+
+message CreateExpressionRequest {
+  string idempotency_key = 1;
+  string expression = 2;
+  string token = 3;
+}
+message CreateExpressionResponse {
+  string expression_id = 1;
+}
+
+message GetExpressionRequest {
+  string expression_id = 1;
+  string token = 2;
+}
+message GetExpressionResponse {
+  float result = 1;
+  string expression_id = 2;
+  string idempotency_key = 3;
+  string value = 4;
+  string state = 5;
+}
+
+message GetExpressionsRequest{
+  string token = 1;
+}
+
+message GetExpressionsResponse {
+  repeated GetExpressionResponse list_of_expressions = 1;
+}
+
+message GetAgentResponse {
+  string id = 1;
+  double heartbeat = 2;
+}
+
+message GetAgentsRequest {
+  string token = 1;
+}
+
+message GetAgentsResponse{
+  repeated GetAgentResponse list_of_agents = 1;
+}
+
+message GetOperatorResponse{
+  string id = 1;
+  double heartbeat = 2;
+  string token = 3;
+}
+
+message GetOperatorsRequest {
+  string token = 1;
+}
+
+message GetOperatorsResponse{
+  repeated GetOperatorResponse list_of_agents = 1;
 }
