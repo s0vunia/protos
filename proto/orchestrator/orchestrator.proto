@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package auth;
+option go_package = "github.com/s0vunia/protos";
+service Orchestrator {
+  // Expression create expression
+  rpc CreateExpression(CreateExpressionRequest) returns (CreateExpressionResponse);
+  // Expressions return expression
+  rpc GetExpression(GetExpressionRequest) returns (GetExpressionResponse);
+  // Expressions return all expressions
+  rpc GetExpressions(GetExpressionsRequest) returns (GetExpressionsResponse);
+  // GetAgents return all agents
+  rpc GetAgents(GetAgentsRequest) returns (GetAgentsResponse);
+  // GetOperators return all operators
+  rpc GetOperators(GetOperatorsRequest) returns (GetOperatorsResponse);
+}
+message CreateExpressionRequest {
+  string idempotency_key = 1;
+  string expression = 2;
+}
+message CreateExpressionResponse {
+  string expression_id = 1;
+}
+
+message GetExpressionRequest {
+  string expression_id = 1;
+}
+message GetExpressionResponse {
+  float result = 1;
+  string expression_id = 2;
+  string idempotency_key = 3;
+  string value = 4;
+  string state = 5;
+}
+
+message GetExpressionsRequest{
+}
+
+message GetExpressionsResponse {
+  repeated GetExpressionResponse list_of_expressions = 1;
+}
+
+message GetAgentResponse {
+  string id = 1;
+  double heartbeat = 2;
+}
+
+message GetAgentsRequest {
+}
+
+message GetAgentsResponse{
+  repeated GetAgentResponse list_of_agents = 1;
+}
+
+message GetOperatorResponse{
+  string id = 1;
+  double heartbeat = 2;
+}
+
+message GetOperatorsRequest {
+}
+
+message GetOperatorsResponse{
+  repeated GetOperatorResponse list_of_agents = 1;
+}
