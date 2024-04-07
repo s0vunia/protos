@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package orchestrator;
-option go_package = "github.com/s0vunia/protos";
+option go_package = "github.com/s0vunia/protos/gen/go/orchestrator";
 service Orchestrator {
   // Expression create expression
   rpc CreateExpression(CreateExpressionRequest) returns (CreateExpressionResponse);

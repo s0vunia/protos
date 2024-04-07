@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package auth;
-option go_package = "github.com/s0vunia/protos";
+option go_package = "github.com/s0vunia/protos/gen/go/auth";
 // Auth is service for managing permissions and roles.
 service Auth {
   // Register registers a new user.
