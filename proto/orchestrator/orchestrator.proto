@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package auth;
+package orchestrator;
 option go_package = "github.com/s0vunia/protos";
 service Orchestrator {
   // Expression create expression
