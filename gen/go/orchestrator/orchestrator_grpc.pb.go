@@ -4,7 +4,7 @@
 // - protoc             v5.26.1
 // source: orchestrator/orchestrator.proto
 
-package protos
+package orchestrator
 
 import (
 	context "context"
@@ -44,7 +44,7 @@ func NewOrchestratorClient(cc grpc.ClientConnInterface) OrchestratorClient {
 
 func (c *orchestratorClient) CreateExpression(ctx context.Context, in *CreateExpressionRequest, opts ...grpc.CallOption) (*CreateExpressionResponse, error) {
 	out := new(CreateExpressionResponse)
-	err := c.cc.Invoke(ctx, "/auth.Orchestrator/CreateExpression", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/orchestrator.Orchestrator/CreateExpression", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func (c *orchestratorClient) CreateExpression(ctx context.Context, in *CreateExp
 
 func (c *orchestratorClient) GetExpression(ctx context.Context, in *GetExpressionRequest, opts ...grpc.CallOption) (*GetExpressionResponse, error) {
 	out := new(GetExpressionResponse)
-	err := c.cc.Invoke(ctx, "/auth.Orchestrator/GetExpression", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/orchestrator.Orchestrator/GetExpression", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (c *orchestratorClient) GetExpression(ctx context.Context, in *GetExpressio
 
 func (c *orchestratorClient) GetExpressions(ctx context.Context, in *GetExpressionsRequest, opts ...grpc.CallOption) (*GetExpressionsResponse, error) {
 	out := new(GetExpressionsResponse)
-	err := c.cc.Invoke(ctx, "/auth.Orchestrator/GetExpressions", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/orchestrator.Orchestrator/GetExpressions", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func (c *orchestratorClient) GetExpressions(ctx context.Context, in *GetExpressi
 
 func (c *orchestratorClient) GetAgents(ctx context.Context, in *GetAgentsRequest, opts ...grpc.CallOption) (*GetAgentsResponse, error) {
 	out := new(GetAgentsResponse)
-	err := c.cc.Invoke(ctx, "/auth.Orchestrator/GetAgents", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/orchestrator.Orchestrator/GetAgents", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *orchestratorClient) GetAgents(ctx context.Context, in *GetAgentsRequest
 
 func (c *orchestratorClient) GetOperators(ctx context.Context, in *GetOperatorsRequest, opts ...grpc.CallOption) (*GetOperatorsResponse, error) {
 	out := new(GetOperatorsResponse)
-	err := c.cc.Invoke(ctx, "/auth.Orchestrator/GetOperators", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/orchestrator.Orchestrator/GetOperators", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -146,7 +146,7 @@ func _Orchestrator_CreateExpression_Handler(srv interface{}, ctx context.Context
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/auth.Orchestrator/CreateExpression",
+		FullMethod: "/orchestrator.Orchestrator/CreateExpression",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrchestratorServer).CreateExpression(ctx, req.(*CreateExpressionRequest))
@@ -164,7 +164,7 @@ func _Orchestrator_GetExpression_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/auth.Orchestrator/GetExpression",
+		FullMethod: "/orchestrator.Orchestrator/GetExpression",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrchestratorServer).GetExpression(ctx, req.(*GetExpressionRequest))
@@ -182,7 +182,7 @@ func _Orchestrator_GetExpressions_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/auth.Orchestrator/GetExpressions",
+		FullMethod: "/orchestrator.Orchestrator/GetExpressions",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrchestratorServer).GetExpressions(ctx, req.(*GetExpressionsRequest))
@@ -200,7 +200,7 @@ func _Orchestrator_GetAgents_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/auth.Orchestrator/GetAgents",
+		FullMethod: "/orchestrator.Orchestrator/GetAgents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrchestratorServer).GetAgents(ctx, req.(*GetAgentsRequest))
@@ -218,7 +218,7 @@ func _Orchestrator_GetOperators_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/auth.Orchestrator/GetOperators",
+		FullMethod: "/orchestrator.Orchestrator/GetOperators",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrchestratorServer).GetOperators(ctx, req.(*GetOperatorsRequest))
@@ -230,7 +230,7 @@ func _Orchestrator_GetOperators_Handler(srv interface{}, ctx context.Context, de
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Orchestrator_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "auth.Orchestrator",
+	ServiceName: "orchestrator.Orchestrator",
 	HandlerType: (*OrchestratorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
