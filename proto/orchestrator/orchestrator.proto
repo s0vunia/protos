@@ -53,13 +53,13 @@ message GetAgentsResponse{
 }
 
 message GetOperatorResponse{
-  string id = 1;
-  double heartbeat = 2;
+  string op = 1;
+  int64 timeout = 2;
 }
 
 message GetOperatorsRequest {
 }
 
 message GetOperatorsResponse{
-  repeated GetOperatorResponse list_of_agents = 1;
+  repeated GetOperatorResponse list_of_operators = 1;
 }
